@@ -147,7 +147,7 @@
           <a href="images/MyCV.pdf" download class="btn btn2">Download CV</a>
         </div>
         <div class="contact-right">
-          <form>
+          <form name="submit-to-google-sheet">
             <input type="text" name="Name" placeholder="Your Name" required>
             <input type="email" name="Email" placeholder="Your Email" required>
             <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
@@ -160,11 +160,8 @@
       <P>© 2023 Md Mustafa Hossain<i class="fa-solid fa-heart"></i>All rights reserved.</P>
     </div>
   </div>
-
-
-
-
-
+  
+  
   <script>
     var tablinks = document.getElementsByClassName("tab-links");
     var tabcontents = document.getElementsByClassName("tab-contents");
@@ -179,7 +176,6 @@
       document.getElementById(tabname).classList.add("active-tab");
     }
   </script>
-
   <script>
     var sidemenu = document.getElementById("sidemenu");
 
@@ -190,6 +186,16 @@
       sidemenu.style.right = "-200px";
     }
   </script>
-  </body>
+  <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwWkZUh8rgJqxdUYux1VjgTlVMnLbr1-_-hyD2DCMQgAYDE6bZks-HsJlFUXpWmYGMC9g/exec'
+  const form = document.forms['submit-to-google-sheet']
 
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+  </body>
 </html>
