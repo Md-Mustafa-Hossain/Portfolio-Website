@@ -344,7 +344,7 @@ form textarea {
   border-radius: 6px;
 }
 
-form btn2 {
+form .btn2 {
   padding: 14px 60px;
   font-size: 18px;
   margin-top: 20px;
@@ -390,7 +390,7 @@ nav .fa-solid {
     background: #ff004f;
     position: fixed;
     top: 0;
-    right: -200;
+    right: -200px;
     width: 200px;
     height: 100vh;
     padding-top: 50px;
